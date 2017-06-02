@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.palantir.npmrun
+package com.palantir.yarnrun
 
-class NpmRunExtension {
+class YarnRunExtension {
     String clean = "clean"
     String test = "test"
     String build = "build"

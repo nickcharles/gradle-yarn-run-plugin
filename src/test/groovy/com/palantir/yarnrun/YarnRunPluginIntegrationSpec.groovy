@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.palantir.npmrun
+package com.palantir.yarnrun
 
 import nebula.test.IntegrationSpec
 import nebula.test.functional.ExecutionResult
 
-class NpmRunPluginIntegrationSpec extends IntegrationSpec {
+class YarnRunPluginIntegrationSpec extends IntegrationSpec {
 
     def setup() {
         copyResources("fixtures/package.json", "package.json")
@@ -28,7 +28,7 @@ class NpmRunPluginIntegrationSpec extends IntegrationSpec {
     def "tasks call underlying package.json scripts block"() {
         setup:
         buildFile << """
-            apply plugin: "com.palantir.npm-run"
+            apply plugin: "com.palantir.yarn-run"
         """.stripIndent()
 
         when:
@@ -47,12 +47,12 @@ class NpmRunPluginIntegrationSpec extends IntegrationSpec {
         "buildDev"  | ["did.test", "did.buildDev"]
     }
 
-    def "override default npm run commands"() {
+    def "override default yarn run commands"() {
         setup:
         buildFile << """
-            apply plugin: "com.palantir.npm-run"
+            apply plugin: "com.palantir.yarn-run"
 
-            npmRun {
+            yarnRun {
                 clean       "other-clean"
                 test        "other-test"
                 build       "other-build"
@@ -79,7 +79,7 @@ class NpmRunPluginIntegrationSpec extends IntegrationSpec {
     def "no duplicates"() {
         setup:
         buildFile << """
-            apply plugin: "com.palantir.npm-run"
+            apply plugin: "com.palantir.yarn-run"
         """.stripIndent()
 
         when:
@@ -90,12 +90,12 @@ class NpmRunPluginIntegrationSpec extends IntegrationSpec {
         ["did.clean", "did.test", "did.build", "did.buildDev"].every { fileExists(it) }
     }
 
-    def "execute nested npm run commands with global node"() {
+    def "execute nested yarn run commands with global node"() {
         given:
         buildFile << """
-            apply plugin: "com.palantir.npm-run"
+            apply plugin: "com.palantir.yarn-run"
 
-            npmRun {
+            yarnRun {
                 build "nested-build"
             }
         """.stripIndent()

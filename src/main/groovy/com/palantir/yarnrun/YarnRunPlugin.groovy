@@ -14,28 +14,28 @@
  * limitations under the License.
  */
 
-package com.palantir.npmrun
+package com.palantir.yarnrun
 
 import com.moowork.gradle.node.NodePlugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
-class NpmRunPlugin implements Plugin<Project> {
+class YarnRunPlugin implements Plugin<Project> {
 
-    public static final String EXTENSION_NAME = "npmRun"
-    public static final String GROUP_NAME = "NPM Run"
+    public static final String EXTENSION_NAME = "yarnRun"
+    public static final String GROUP_NAME = "Yarn Run"
 
     @Override
     void apply(Project project) {
 
         project.plugins.apply(NodePlugin.class)
 
-        NpmRunExtension extension = project.extensions.create(EXTENSION_NAME, NpmRunExtension)
+        YarnRunExtension extension = project.extensions.create(EXTENSION_NAME, YarnRunExtension)
 
         project.afterEvaluate {
             project.task("clean") {
                 group = GROUP_NAME
-                description = "Runs 'npm run clean'"
+                description = "Runs 'yarn run clean'"
 
                 dependsOn "npmInstall"
                 dependsOn "npm_run_${extension.clean}"
@@ -45,7 +45,7 @@ class NpmRunPlugin implements Plugin<Project> {
 
             project.task("test") {
                 group = GROUP_NAME
-                description = "Runs 'npm run test'"
+                description = "Runs 'yarn run test'"
 
                 dependsOn "npmInstall"
                 dependsOn "npm_run_${extension.test}"
@@ -63,7 +63,7 @@ class NpmRunPlugin implements Plugin<Project> {
 
             project.task("build") {
                 group = GROUP_NAME
-                description = "Runs 'npm run build' and depends on ':check'"
+                description = "Runs 'yarn run build' and depends on ':check'"
 
                 dependsOn "npmInstall"
                 dependsOn "check"
@@ -76,7 +76,7 @@ class NpmRunPlugin implements Plugin<Project> {
 
             project.task("buildDev") {
                 group = GROUP_NAME
-                description = "Runs 'npm run buildDev' and depends on ':check'"
+                description = "Runs 'yarn run buildDev' and depends on ':check'"
 
                 dependsOn "npmInstall"
                 dependsOn "check"

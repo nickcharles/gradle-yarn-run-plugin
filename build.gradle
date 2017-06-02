@@ -19,7 +19,7 @@ apply plugin: 'idea'
 apply plugin: 'com.palantir.git-version'
 apply from: "${rootDir}/gradle/publish.gradle"
 
-group 'com.palantir.npmrun'
+group 'com.palantir.yarnrun'
 version gitVersion()
 
 repositories {

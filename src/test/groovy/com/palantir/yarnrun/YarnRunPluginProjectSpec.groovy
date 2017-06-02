@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package com.palantir.npmrun
+package com.palantir.yarnrun
 
 import com.moowork.gradle.node.NodePlugin
 import nebula.test.PluginProjectSpec
 import org.gradle.api.Task
 
-class NpmRunPluginProjectSpec extends PluginProjectSpec {
+class YarnRunPluginProjectSpec extends PluginProjectSpec {
     @Override
     String getPluginName() {
-        return "com.palantir.npm-run"
+        return "com.palantir.yarn-run"
     }
 
     def "applies the node plugin"() {
@@ -39,7 +39,7 @@ class NpmRunPluginProjectSpec extends PluginProjectSpec {
         project.apply plugin: pluginName
 
         then:
-        project.extensions.findByName(NpmRunPlugin.EXTENSION_NAME) != null
+        project.extensions.findByName(YarnRunPlugin.EXTENSION_NAME) != null
     }
 
     def "tasks built with dependsOn and mustRunAfter"() {
