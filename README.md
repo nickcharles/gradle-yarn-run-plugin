@@ -1,42 +1,41 @@
-gradle-npm-run-plugin
+gradle-yarn-run-plugin
 =====================
-[![Circle CI](https://circleci.com/gh/palantir/gradle-npm-run-plugin.svg?style=shield&circle-token=012397ab761aa8f59276b2ac7babb51d80a12a7c)](https://circleci.com/gh/palantir/gradle-npm-run-plugin)
 
-A Gradle Plugin to create lifecycle tasks that trigger `npm run` commands.
+A Gradle Plugin to create lifecycle tasks that trigger `yarn run` commands.
 
 Usage
 -----
 1. [Apply the plugin](https://plugins.gradle.org/plugin/com.palantir.npm-run)
-1. Add `npm` to your `devDependencies` block in your `package.json`
+1. Add `yarn` to your `devDependencies` block in your `package.json`
 1. Configure your `package.json` `scripts` block
 
-This will allow you to have a consistent Gradle task interface between your NPM + Java projects. You should be able to
+This will allow you to have a consistent Gradle task interface between your Yarn + Java projects. You should be able to
 run commands like the following:
 
 ```bash
 ./gradlew build -x check
 ```
 
-It will build your NPM package without running the tests.
+It will build your Yarn package without running the tests.
 
 
 Tasks
 -----
 The following tasks are added:
 
-- `clean` - Runs `npm run clean`
-- `test` - Runs `npm run test`
+- `clean` - Runs `yarn run clean`
+- `test` - Runs `yarn run test`
 - `check` - Depends on `:test`
-- `build` - Runs `npm run build` and depends on `:check`. Builds the production-ready version of the assets.
-- `buildDev` - Runs `npm run buildDev` and depends on `:check`. Builds the development-mode version of the assets.
+- `build` - Runs `yarn run build` and depends on `:check`. Builds the production-ready version of the assets.
+- `buildDev` - Runs `yarn run buildDev` and depends on `:check`. Builds the development-mode version of the assets.
 
 
 Configuration
 -------------
-You can configure the `npm run *` commands in your `build.gradle`. Here's an example:
+You can configure the `yarn run *` commands in your `build.gradle`. Here's an example:
 
 ```groovy
-npmRun {
+yarnRun {
     clean       "other-clean"       // defaults to "clean"
     test        "other-test"        // defaults to "test"
     build       "other-build"       // defaults to "build"
