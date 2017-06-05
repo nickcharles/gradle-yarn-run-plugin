@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.palantir.yarnrun
+package com.nickcharles.yarnrun
 
 import nebula.test.IntegrationSpec
 import nebula.test.functional.ExecutionResult
@@ -28,7 +28,7 @@ class YarnRunPluginIntegrationSpec extends IntegrationSpec {
     def "tasks call underlying package.json scripts block"() {
         setup:
         buildFile << """
-            apply plugin: "com.palantir.yarn-run"
+            apply plugin: "com.nickcharles.yarn-run"
         """.stripIndent()
 
         when:
@@ -50,7 +50,7 @@ class YarnRunPluginIntegrationSpec extends IntegrationSpec {
     def "override default yarn run commands"() {
         setup:
         buildFile << """
-            apply plugin: "com.palantir.yarn-run"
+            apply plugin: "com.nickcharles.yarn-run"
 
             yarnRun {
                 clean       "other-clean"
@@ -79,7 +79,7 @@ class YarnRunPluginIntegrationSpec extends IntegrationSpec {
     def "no duplicates"() {
         setup:
         buildFile << """
-            apply plugin: "com.palantir.yarn-run"
+            apply plugin: "com.nickcharles.yarn-run"
         """.stripIndent()
 
         when:
@@ -93,7 +93,7 @@ class YarnRunPluginIntegrationSpec extends IntegrationSpec {
     def "execute nested yarn run commands with global node"() {
         given:
         buildFile << """
-            apply plugin: "com.palantir.yarn-run"
+            apply plugin: "com.nickcharles.yarn-run"
 
             yarnRun {
                 build "nested-build"

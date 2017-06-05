@@ -12,12 +12,12 @@ bintray {
     pkg {
         repo = 'releases'
         name = 'gradle-yarn-run-plugin'
-        userOrg = 'palantir'
+        userOrg = 'nickcharles'
         licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/palantir/gradle-yarn-run-plugin'
+        vcsUrl = 'https://github.com/nickcharles/gradle-yarn-run-plugin'
         publications = ['nebula']
 
-        githubRepo = 'palantir/gradle-yarn-run-plugin'
+        githubRepo = 'nickcharles/gradle-yarn-run-plugin'
         githubReleaseNotesFile = 'README.md'
     }
 }
@@ -30,14 +30,14 @@ bintrayUpload.dependsOn 'generatePomFileForNebulaPublication', 'build'
 
 
 pluginBundle {
-    website = 'https://github.com/palantir/gradle-yarn-run-plugin'
-    vcsUrl = 'https://github.com/palantir/gradle-yarn-run-plugin'
+    website = 'https://github.com/nickcharles/gradle-yarn-run-plugin'
+    vcsUrl = 'https://github.com/nickcharles/gradle-yarn-run-plugin'
     description = 'A Gradle Plugin to create lifecycle tasks that trigger yarn run commands.'
     tags = ['yarn']
 
     plugins {
         yarnRun {
-            id = 'com.palantir.yarn-run'
+            id = 'com.nickcharles.yarn-run'
             displayName = 'Yarn Run'
         }
     }

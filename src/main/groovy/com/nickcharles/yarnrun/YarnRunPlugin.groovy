@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.palantir.yarnrun
+package com.nickcharles.yarnrun
 
 import com.moowork.gradle.node.NodePlugin
 import org.gradle.api.Plugin
@@ -37,20 +37,20 @@ class YarnRunPlugin implements Plugin<Project> {
                 group = GROUP_NAME
                 description = "Runs 'yarn run clean'"
 
-                dependsOn "npmInstall"
-                dependsOn "npm_run_${extension.clean}"
+                dependsOn "yarn"
+                dependsOn "yarn_run_${extension.clean}"
 
-                mustRunAfter "npmInstall"
+                mustRunAfter "yarn"
             }
 
             project.task("test") {
                 group = GROUP_NAME
                 description = "Runs 'yarn run test'"
 
-                dependsOn "npmInstall"
-                dependsOn "npm_run_${extension.test}"
+                dependsOn "yarn"
+                dependsOn "yarn_run_${extension.test}"
 
-                mustRunAfter "npmInstall"
+                mustRunAfter "yarn"
                 mustRunAfter "clean"
             }
 
@@ -65,11 +65,11 @@ class YarnRunPlugin implements Plugin<Project> {
                 group = GROUP_NAME
                 description = "Runs 'yarn run build' and depends on ':check'"
 
-                dependsOn "npmInstall"
+                dependsOn "yarn"
                 dependsOn "check"
-                dependsOn "npm_run_${extension.build}"
+                dependsOn "yarn_run_${extension.build}"
 
-                mustRunAfter "npmInstall"
+                mustRunAfter "yarn"
                 mustRunAfter "clean"
                 mustRunAfter "check"
             }
@@ -78,11 +78,11 @@ class YarnRunPlugin implements Plugin<Project> {
                 group = GROUP_NAME
                 description = "Runs 'yarn run buildDev' and depends on ':check'"
 
-                dependsOn "npmInstall"
+                dependsOn "yarn"
                 dependsOn "check"
-                dependsOn "npm_run_${extension.buildDev}"
+                dependsOn "yarn_run_${extension.buildDev}"
 
-                mustRunAfter "npmInstall"
+                mustRunAfter "yarn"
                 mustRunAfter "clean"
                 mustRunAfter "check"
             }

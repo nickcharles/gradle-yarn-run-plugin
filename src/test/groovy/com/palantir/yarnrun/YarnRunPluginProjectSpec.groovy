@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.palantir.yarnrun
+package com.nickcharles.yarnrun
 
 import com.moowork.gradle.node.NodePlugin
 import nebula.test.PluginProjectSpec
@@ -23,7 +23,7 @@ import org.gradle.api.Task
 class YarnRunPluginProjectSpec extends PluginProjectSpec {
     @Override
     String getPluginName() {
-        return "com.palantir.yarn-run"
+        return "com.nickcharles.yarn-run"
     }
 
     def "applies the node plugin"() {
@@ -54,11 +54,11 @@ class YarnRunPluginProjectSpec extends PluginProjectSpec {
         mustRunAfterList.every { task.mustRunAfter.values.contains(it) }
 
         where:
-        taskName    | dependsOnList                                 | mustRunAfterList
-        "clean"     | ["npmInstall", "npm_run_clean"]               | ["npmInstall"]
-        "test"      | ["npmInstall", "npm_run_test"]                | ["npmInstall", "clean"]
-        "check"     | ["test"]                                      | []
-        "build"     | ["npmInstall", "check", "npm_run_build"]      | ["npmInstall", "clean", "check"]
-        "buildDev"  | ["npmInstall", "check", "npm_run_buildDev"]   | ["npmInstall", "clean", "check"]
+        taskName    | dependsOnList                             | mustRunAfterList
+        "clean"     | ["yarn", "yarn_run_clean"]                | ["yarn"]
+        "test"      | ["yarn", "yarn_run_test"]                 | ["yarn", "clean"]
+        "check"     | ["test"]                                  | []
+        "build"     | ["yarn", "check", "yarn_run_build"]       | ["yarn", "clean", "check"]
+        "buildDev"  | ["yarn", "check", "yarn_run_buildDev"]    | ["yarn", "clean", "check"]
     }
 }

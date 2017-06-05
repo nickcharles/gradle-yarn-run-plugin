@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.palantir.yarnrun
+package com.nickcharles.yarnrun
 
 class YarnRunExtension {
     String clean = "clean"

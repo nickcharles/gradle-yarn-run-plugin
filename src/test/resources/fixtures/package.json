@@ -15,7 +15,7 @@
     "other-buildDev": "echo \"buildDev\" > other.buildDev",
 
     "nested-test": "echo \"test\" > nested.test",
-    "nested-build": "echo \"build\" > nested.build && npm run nested-test"
+    "nested-build": "echo \"build\" > nested.build && yarn run nested-test"
   },
   "author": "",
   "license": "ISC"
