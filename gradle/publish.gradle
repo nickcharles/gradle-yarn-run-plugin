@@ -43,8 +43,8 @@ pluginBundle {
     }
 }
 
-publishPlugins.onlyIf {
-    project.version ==~ /\d+\.\d+\.\d+/
-}
+// publishPlugins.onlyIf {
+//     project.version ==~ /\d+\.\d+\.\d+/
+// }
 
-publishPlugins.dependsOn 'generatePomFileForNebulaPublication', 'build'
+publishPlugins.dependsOn 'build'
