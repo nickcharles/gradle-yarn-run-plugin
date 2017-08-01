@@ -5,7 +5,7 @@ A Gradle Plugin to create lifecycle tasks that trigger `yarn run` commands.
 
 Usage
 -----
-1. [Apply the plugin](https://plugins.gradle.org/plugin/com.palantir.npm-run)
+1. [Apply the plugin](https://plugins.gradle.org/plugin/com.nickcharles.yarn-run)
 1. Add `yarn` to your `devDependencies` block in your `package.json`
 1. Configure your `package.json` `scripts` block
 
